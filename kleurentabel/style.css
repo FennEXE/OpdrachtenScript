@@ -4,11 +4,15 @@
 
 .tafel2 {
     display: grid;
-    border: 2px black solid;
+    border: 1px black solid;
     width: 400px;
     height: 400px;
     grid-template-columns: 25% 25% 25% 25%;
     grid-template-rows: 25% 25% 25% 25%;
+    border-radius: 15px;
+    background-color: black;
+    transition-property: border-radius, background-color;
+    transition-duration: 12s;
 }
 
 .rood {
@@ -18,7 +22,7 @@
     border: 2px black dotted;
     text-align: center;
     font-size: 30px;
-    transition-property: background-color;
+    transition-property: background-color, border-radius;
     transition-duration: 4s;
 }
 
@@ -29,7 +33,7 @@
     border: 2px black dotted;
     text-align: center;
     font-size: 30px;
-    transition-property: background-color;
+    transition-property: background-color, border-radius;
     transition-duration: 4s;
     transition-delay: 2s;
 }
@@ -41,7 +45,7 @@
     border: 2px black dotted;
     text-align: center;
     font-size: 30px;
-    transition-property: background-color;
+    transition-property: background-color, border-radius;
     transition-duration: 4s;
     transition-delay: 4s;
 }
