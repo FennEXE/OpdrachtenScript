@@ -1,3 +1,47 @@
-h1 {
+.opdrachtttitle {
     color: red;
+}
+
+.tafel2 {
+    display: grid;
+    border: 2px black solid;
+    width: 400px;
+    height: 400px;
+    grid-template-columns: 25% 25% 25% 25%;
+    grid-template-rows: 25% 25% 25% 25%;
+}
+
+.rood {
+    background-color: red;
+    color: black;
+    border-radius: 15px;
+    border: 2px black dotted;
+    text-align: center;
+    font-size: 30px;
+    transition-property: background-color;
+    transition-duration: 4s;
+}
+
+.groen {
+    background-color: green;
+    color: black;
+    border-radius: 15px;
+    border: 2px black dotted;
+    text-align: center;
+    font-size: 30px;
+    transition-property: background-color;
+    transition-duration: 4s;
+    transition-delay: 2s;
+}
+
+.blauw {
+    background-color: blue;
+    color: black;
+    border-radius: 15px;
+    border: 2px black dotted;
+    text-align: center;
+    font-size: 30px;
+    transition-property: background-color;
+    transition-duration: 4s;
+    transition-delay: 4s;
 }
