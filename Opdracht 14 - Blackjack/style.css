@@ -6,7 +6,8 @@ th{
 }
 
 body {
-    background-color: rgb(32, 32, 32);
+    background-color: #000000;
+    background-image: url("https://www.transparenttextures.com/patterns/tactile-noise-dark.png");
 }
 
 .game {
@@ -21,8 +22,9 @@ body {
     margin: auto;
     width: 50%;
     height: 100%;
-    border: 10px outset rgb(68, 44, 21);
-    background-color: darkgreen;
+    border: 10px outset rgba(68, 44, 21, 0.753);
+    background-color: #004a0f;
+    background-image: url("https://www.transparenttextures.com/patterns/45-degree-fabric-dark.png");;
     padding: 10px;
     border-radius: 20px;
 }
@@ -32,6 +34,7 @@ body {
 #restart,
 #act,
 #resolve {
+    background-image: url("https://www.transparenttextures.com/patterns/brushed-alum-dark.png");
     border-radius: 40%;
     font-weight: bold;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
@@ -71,10 +74,11 @@ body {
     text-align: center;
     margin: auto;
     width: 25%;
-    border-bottom: 3px outset rgb(68, 44, 21);
-    border-left: 3px outset rgb(68, 44, 21);
-    border-right: 3px outset rgb(68, 44, 21);
-    background-color: rgb(49, 40, 32);
+    border-bottom: 5px outset rgba(68, 44, 21, 0.300);
+    border-left: 5px outset rgba(68, 44, 21, 0.300);
+    border-right: 5px outset rgba(68, 44, 21, 0.300);
+    background-color: #161209;
+    background-image: url("https://www.transparenttextures.com/patterns/wood.png");
     border-bottom-left-radius: 50%;
     border-bottom-right-radius: 50%;
     padding: 10px;
@@ -97,7 +101,8 @@ td {
     text-align: center;
     margin: auto;
     border-radius: 30%;
-    background-color: red;
+    background-color: #8a0500;
+    background-image: url("https://www.transparenttextures.com/patterns/45-degree-fabric-dark.png");
 }
 
 #dealerTable {
@@ -121,10 +126,11 @@ td {
     margin: auto;
     
     width: 10%;
-    border-bottom: 3px outset rgb(68, 44, 21);
-    border-left: 3px outset rgb(68, 44, 21);
-    border-right: 3px outset rgb(68, 44, 21);
-    background-color: rgb(49, 40, 32);
+    border-bottom: 5px outset rgba(68, 44, 21, 0.300);
+    border-left: 5px outset rgba(68, 44, 21, 0.300);
+    border-right: 5px outset rgba(68, 44, 21, 0.300);
+    background-color: #161209;
+    background-image: url("https://www.transparenttextures.com/patterns/wood.png");
     border-bottom-left-radius: 10%;
     border-bottom-right-radius: 10%;
     padding: 10px;
