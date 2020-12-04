@@ -1,9 +1,10 @@
 //Italian Cuisine made on 4-12-2020 by Luuk Nagtegaal
+'use strict' // Adding use strict makes the code more strict. This will result in unexpected behaviour
 
 //Dealer hand value, score and table cells
-let dealerHandValue = document.getElementById("dealerHandValue");
+const dealerHandValue = document.getElementById("dealerHandValue"); // can be const, cause it will always refer to the element
 const dealerTable = document.getElementById("dealerTable");
-const dealerRow = document.getElementById("dealerRows");
+const dealerRow = document.getElementById("dealerRows"); // only used once, no need to declare then
 let dealerCellCount = 0;
 let dealerScore = 0;
 
@@ -11,15 +12,15 @@ let dealerScore = 0;
 let dealerPace = 650;
 
 //Player hand value, score and table cells
-let playerHandValue = document.getElementById("playerHandValue");;
+const playerHandValue = document.getElementById("playerHandValue");// can be const, cause it will always refer to the element
 const playerTable = document.getElementById("playerTable");
-const playerRow = document.getElementById("playerRows");
+const playerRow = document.getElementById("playerRows"); // only used once, no need to declare then
 let playerCellCount = 0;
 let playerScore = 0;
 
 //Buttons for Hold and Hit respectively. Allows them to be changed into clear or start buttons
-let passButton = document.getElementById("resolve");
-let dealButton = document.getElementById("act");
+const passButton = document.getElementById("resolve"); // can be const, cause it will always refer to the element
+const dealButton = document.getElementById("act"); // can be const, cause it will always refer to the element
 
 //Gamestate tells the script when a game is concluded, allowing the next draw to be two cards
 let gameState = 1;
@@ -27,9 +28,10 @@ let gameState = 1;
 //Counts wins and losses for the scoreboard as well as display them via HTML
 let pWins = 0;
 let pLoss = 0;
-let playerWins = document.getElementById("wins");
-let playerLosses = document.getElementById("losses");
+const playerWins = document.getElementById("wins"); // can be const, cause it will always refer to the element
+const playerLosses = document.getElementById("losses"); // can be const, cause it will always refer to the element
 
+// These variable are not defined
 //This will hold the card deck, each card is a unicode as well as a value for the scoreboard.
 cardArraySpades = ["&#127137;", "&#127138;", "&#127139;", "&#127140;", "&#127141;", "&#127142;", "&#127143;", "&#127144;", "&#127145;", "&#127146;", "&#127147;", "&#127149;", "&#127150;"];
 cardArrayHearts = ["&#127153;", "&#127154;", "&#127155;", "&#127156;", "&#127157;", "&#127158;", "&#127159;", "&#127160;", "&#127161;", "&#127162;", "&#127163;", "&#127165;", "&#127166;"];
@@ -42,6 +44,7 @@ deckArray = [cardArraySpades, cardArrayHearts, cardArrayDiamonds, cardArrayClubs
 let dealerAceCount = 0;
 let playerAceCount = 0;
 
+// Don't use var, only use const and let. Because var has some unexpected bahviour because it hoists
 //These are the table cells for cards
 var cellArray = dealerRow.cells;
 var pCellArray = playerRow.cells;
@@ -56,6 +59,9 @@ function sleep(ms)
 async function dealerHit() 
 {
 
+    // You can exit out of the function with return
+    // By using that you can decrease the nesting
+
     //Checks if the gamestate is concluded. If the gamestate is concluded it clears the board and draws two cards.
     if (gameState != 0) 
     {
@@ -64,108 +70,115 @@ async function dealerHit()
         dealButton.innerHTML = "Hit";
         passButton.innerHTML = "Hold";
         gameState = 0;
-    } else {
+        return
+    } 
 
-        //This draws a random card from the Unicode Array, and uses cardType as a string to display the right card
-        cardDraw = Math.floor(Math.random() * 4);
-        cardType = deckArray[cardDraw];
-        cardValue = Math.floor(Math.random() * 13);
+    // These variable are not defined
+    //This draws a random card from the Unicode Array, and uses cardType as a string to display the right card
+    cardDraw = Math.floor(Math.random() * 4);
+    cardType = deckArray[cardDraw];
+    cardValue = Math.floor(Math.random() * 13);
 
-        //Selects the cells in the table, if the cells are higher than the 7th cell it will start back at 1.
-        //Picked 7 cells since blackjack VERY rarely goes over 7 cards.
-        if (dealerCellCount >6)
-        {
-            dealerCellCount = 0;
-        }
+    //Selects the cells in the table, if the cells are higher than the 7th cell it will start back at 1.
+    //Picked 7 cells since blackjack VERY rarely goes over 7 cards.
+    if (dealerCellCount >6)
+    {
+        dealerCellCount = 0;
+    }
 
-        //Displays the Unicode card in the cell.
-        cellArray[dealerCellCount].innerHTML = `${cardType[cardValue]}`;
+    //Displays the Unicode card in the cell.
+    cellArray[dealerCellCount].innerHTML = `${cardType[cardValue]}`;
 
-		//If the card is an Ace, adds 11. If 11 puts you over 21, adds 1 instead.
-		//If the card becomes 11, it also adds an ace token for later deduction
-        if (cardValue === 0)
-        {
-            dealerScore = Number(dealerScore)+11;
-            dealerHandValue.innerHTML = dealerScore; 
-            dealerAceCount = dealerAceCount + 1;
+    //If the card is an Ace, adds 11. If 11 puts you over 21, adds 1 instead.
+    //If the card becomes 11, it also adds an ace token for later deduction
+    if (cardValue === 0)
+    {
+        // Should not be needed to use Number here anymore
+        dealerScore = Number(dealerScore)+11;
+        // dealerHandValue.innerHTML = dealerScore; 
+        // dealerAceCount = dealerAceCount + 1;
+        dealerAceCount++ // alternative way of writing adding one to a variable
 
-            if(dealerScore > 21)
-            {
-                dealerScore = Number(dealerScore)-10;
-                dealerHandValue.innerHTML = dealerScore; 
-                dealerAceCount = dealerAceCount - 1;
-            }
-
-            //Checks if the dealer has 21 
-            winConditionDealer();
-        }
-
-        //Cards with value from 2 to 10
-        if (cardValue >0 && cardValue <10)
-        {
-            dealerScore = Number(dealerScore)+cardValue+1
-            dealerHandValue.innerHTML = dealerScore; 
-            winConditionDealer();
-        }
-
-        //Jacks, queens and kings all have a value of 10
-        if (cardValue >= 10)
-        {
-            dealerScore = Number(dealerScore)+10;
-            dealerHandValue.innerHTML = dealerScore; 
-            winConditionDealer();
-        }
-
-        //Progresses the cell counts for the table, allowing it to pick the next cell.
-        dealerCellCount = dealerCellCount+1;
-
-        //Sleep makes sure that the cards come one at a time instead of all at once
-        sleep(dealerPace);
-
-        //If the dealer has a lower score than the player he is forced to keep drawing cards
-        //Dealer wins if he has a higher score than the player
-        if (Number(dealerScore) >= Number(playerScore) && Number(dealerScore) <= 21) 
-        {
-            dealerHandValue.innerHTML = "Dealer Wins";
-            pLoss = pLoss + 1;
-        	playerLosses.innerHTML = pLoss;
-            gameState = 1;
-            dealButton.innerHTML = "Clear";
-            passButton.innerHTML = "Clear";
-            playerScore = 0;
-            dealerScore = 0;
-        }
-
-        //If the dealer has no aces, he will bust when going over 21. 
-        else if (Number(dealerScore) > 21 && dealerAceCount < 1) 
-        {
-            dealerHandValue.innerHTML = "BUST";
-            pWins = pWins + 1;
-        	playerWins.innerHTML = pWins;
-            gameState = 1; 
-            dealButton.innerHTML = "Clear";
-            passButton.innerHTML = "Clear";
-            playerScore = 0;
-            dealerScore = 0;
-        }
-
-        //If the dealer has aces, the ace will be reduced to a value of 1, taking away one ace token.
-        else if (Number(dealerScore) > 21 && dealerAceCount > 0)
+        if(dealerScore > 21)
         {
             dealerScore = Number(dealerScore)-10;
-            dealerHandValue.innerHTML = dealerScore; 
-            dealerAceCount = dealerAceCount - 1;
-        }
+            // dealerHandValue.innerHTML = dealerScore; 
+            // dealerAceCount = dealerAceCount - 1;
+            dealerAceCount--
+    }
 
-        //If no conditions are met, the dealer will draw and sleep.
-        else 
+        //Checks if the dealer has 21 
+        // winConditionDealer();
+    }
+
+    //Cards with value from 2 to 10
+    else if (cardValue >0 && cardValue <10)
+    {
+        dealerScore = Number(dealerScore)+cardValue+1
+        // dealerHandValue.innerHTML = dealerScore; 
+        // winConditionDealer();
+    }
+
+    //Jacks, queens and kings all have a value of 10
+    else if  (cardValue >= 10)
+    {
+        dealerScore = Number(dealerScore)+10;
+        // dealerHandValue.innerHTML = dealerScore; 
+        // winConditionDealer();
+    }
+    // These were repeated too many times, and it's something you always want to do, so you can place them outside of the ifs
+    dealerHandValue.innerHTML = dealerScore; 
+    winConditionDealer();
+
+    //Progresses the cell counts for the table, allowing it to pick the next cell.
+    dealerCellCount = dealerCellCount+1;
+
+    //Sleep makes sure that the cards come one at a time instead of all at once
+    sleep(dealerPace);
+
+    //If the dealer has a lower score than the player he is forced to keep drawing cards
+    //Dealer wins if he has a higher score than the player
+    if (Number(dealerScore) >= Number(playerScore) && Number(dealerScore) <= 21) 
+    {
+        dealerHandValue.innerHTML = "Dealer Wins";
+        pLoss = pLoss + 1;
+        playerLosses.innerHTML = pLoss;
+        gameState = 1;
+        dealButton.innerHTML = "Clear";
+        passButton.innerHTML = "Clear";
+        playerScore = 0;
+        dealerScore = 0;
+    }
+
+    //If the dealer has no aces, he will bust when going over 21. 
+    else if (Number(dealerScore) > 21 && dealerAceCount < 1) 
+    {
+        dealerHandValue.innerHTML = "BUST";
+        pWins = pWins + 1;
+        playerWins.innerHTML = pWins;
+        gameState = 1; 
+        dealButton.innerHTML = "Clear";
+        passButton.innerHTML = "Clear";
+        playerScore = 0;
+        dealerScore = 0;
+    }
+
+    //If the dealer has aces, the ace will be reduced to a value of 1, taking away one ace token.
+    else if (Number(dealerScore) > 21 && dealerAceCount > 0)
+    {
+        dealerScore = Number(dealerScore)-10;
+        dealerHandValue.innerHTML = dealerScore; 
+        dealerAceCount = dealerAceCount - 1;
+    }
+
+    //If no conditions are met, the dealer will draw and sleep.
+    else 
+    {
+        if (Number(dealerScore) >! Number(playerScore) && Number(dealerScore) < 21)
         {
-            if (Number(dealerScore) >! Number(playerScore) && Number(dealerScore) < 21)
-            {
-                //Waits until the sleep timer has passed before hitting.
-                await sleep(dealerPace);                        
-        	    dealerHit();
-            }
+            //Waits until the sleep timer has passed before hitting.
+            await sleep(dealerPace);                        
+            dealerHit();
         }
     }
 }
@@ -337,7 +350,8 @@ function clearScore()
     clearDeck();
     pLoss = 0;
     pWins = 0;
-    playerAceCount = 0;
-    dealerAceCount = 0;
-    gameState = 1;
+    // These are already being called in clearDeck
+    // playerAceCount = 0;
+    // dealerAceCount = 0;
+    // gameState = 1;
 }
