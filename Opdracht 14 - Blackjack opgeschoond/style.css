@@ -1,0 +1,145 @@
+table,
+tr,
+th{
+    border-collapse: collapse;
+    border: 1px solid black;
+}
+
+body {
+    background-color: #000000;
+    background-image: url("https://www.transparenttextures.com/patterns/tactile-noise-dark.png");
+}
+
+.game {
+    width: 1000px;
+    margin: auto;
+}
+
+.game2 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: large;
+    text-align: center;
+    margin: auto;
+    width: 50%;
+    height: 100%;
+    border: 10px outset rgba(68, 44, 21, 0.753);
+    background-color: #004a0f;
+    background-image: url("https://www.transparenttextures.com/patterns/45-degree-fabric-dark.png");;
+    padding: 10px;
+    border-radius: 20px;
+}
+
+#start,
+#stop,
+#restart,
+#act,
+#resolve {
+    background-image: url("https://www.transparenttextures.com/patterns/brushed-alum-dark.png");
+    border-radius: 40%;
+    font-weight: bold;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+}
+
+#act,
+#resolve {
+    width: 15%;
+    height: 40%;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+}
+
+#act,
+#start {
+    background-color: rgb(9, 211, 9);
+}
+
+#stop,
+#start,
+#restart {
+    width: 30%;
+}
+
+#resolve,
+#stop {
+    background-color: red;
+}
+
+#restart {
+    background-color: orange;
+}
+
+#gameStart {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: large;
+    text-align: center;
+    margin: auto;
+    width: 25%;
+    border-bottom: 5px outset rgba(68, 44, 21, 0.300);
+    border-left: 5px outset rgba(68, 44, 21, 0.300);
+    border-right: 5px outset rgba(68, 44, 21, 0.300);
+    background-color: #161209;
+    background-image: url("https://www.transparenttextures.com/patterns/wood.png");
+    border-bottom-left-radius: 50%;
+    border-bottom-right-radius: 50%;
+    padding: 10px;
+}
+
+td {
+    width: 20px;
+    height: 20px;
+}
+
+.hidden {
+    font-size: 0px;
+    background-color: #000000;
+}
+
+#gameTitle {
+    font-weight: bold;
+    border: 3px inset darkred;
+    width: 20%;
+    text-align: center;
+    margin: auto;
+    border-radius: 30%;
+    background-color: #8a0500;
+    background-image: url("https://www.transparenttextures.com/patterns/45-degree-fabric-dark.png");
+}
+
+#dealerTable {
+    margin: auto;
+    text-align: center;
+    padding-bottom: 1em;
+    font-size: 75px;
+    border-style: hidden;
+}
+
+#dealercell {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+
+}
+
+#winBoard {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: large;
+    text-align: center;
+    margin: auto;
+    
+    width: 10%;
+    border-bottom: 5px outset rgba(68, 44, 21, 0.300);
+    border-left: 5px outset rgba(68, 44, 21, 0.300);
+    border-right: 5px outset rgba(68, 44, 21, 0.300);
+    background-color: #161209;
+    background-image: url("https://www.transparenttextures.com/patterns/wood.png");
+    border-bottom-left-radius: 10%;
+    border-bottom-right-radius: 10%;
+    padding: 10px;
+     
+    position: relative;
+    top: -5px;
+    z-index: -10;
+}
+
+#winTable {
+    margin: auto;
+}

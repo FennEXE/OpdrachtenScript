@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+
+<head>
+
+    <title>Opdracht 15 - JavaScript Blackjack</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+    <div class="game">
+        <div class="game2">
+            <header id="gameTitle">Blackjack</header>
+            <br><br>
+            <a id="dealerHandValue">0</a>
+            <table id="dealerTable">
+                <tr id="dealerRows">
+                    <td>&#8199;</td>
+                    <td>&#8199;</td>
+                    <td>&#8199;</td>
+                    <td>&#8199;</td>
+                    <td>&#8199;</td>
+                    <td>&#8199;</td>
+                    <td>&#8199;</td>
+                </tr>
+                <tr id="playerRows">
+                    <td>&#8199;</td>
+                    <td>&#8199;</td>
+                    <td>&#8199;</td>
+                    <td>&#8199;</td>
+                    <td>&#8199;</td>
+                    <td>&#8199;</td>
+                    <td>&#8199;</td>
+                </tr>
+            </table>
+            <br>
+            <button id="act" class="deal" onclick="hitPlayer()">Start</button>
+            <button id="resolve" onclick="dealerHit()">Start</button>
+            <br>
+            <br>
+            <a id="playerHandValue">0</a>
+            <table id="playerTable">
+            </table>
+            <br><br>
+        </div>
+        <div id="gameStart">
+            <button id="start" class="shuffle" onclick="shuffle()">Deal</button>
+            <button id="stop" class="clear" onclick="clearDeck()">Stop</button>
+            <button id="restart" class="reshuffle" onclick="clearScore()">Clear</button>
+            <br><br>
+        </div>
+        <div id="winBoard">
+            <table id="winTable">
+                <tr><td>Wins:   </td><td id="wins">0</td></tr>
+                <tr><td>Losses: </td><td id="losses">0</td></tr>
+            </table>
+        </div>
+    </div>
+    <script type="text/JavaScript" src="opschoning.js"></script>
+
+</body>
