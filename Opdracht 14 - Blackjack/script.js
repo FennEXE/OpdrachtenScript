@@ -8,7 +8,7 @@ let dealerCellCount = 0;
 let dealerScore = 0;
 
 //Dealer draws cards at this pace, prevents it from being instant, adjust number as fit.
-let dealerPace = 750;
+let dealerPace = 650;
 
 //Player hand value, score and table cells
 let playerHandValue = document.getElementById("playerHandValue");;
@@ -81,7 +81,8 @@ async function dealerHit()
         //Displays the Unicode card in the cell.
         cellArray[dealerCellCount].innerHTML = `${cardType[cardValue]}`;
 
-        //If the card is an Ace, adds 11. If 11 puts you over 21, adds 1 instead.
+		//If the card is an Ace, adds 11. If 11 puts you over 21, adds 1 instead.
+		//If the card becomes 11, it also adds an ace token for later deduction
         if (cardValue === 0)
         {
             dealerScore = Number(dealerScore)+11;
@@ -126,7 +127,8 @@ async function dealerHit()
         if (Number(dealerScore) >= Number(playerScore) && Number(dealerScore) <= 21) 
         {
             dealerHandValue.innerHTML = "Dealer Wins";
-            playerLosses.innerHTML = Number(playerLosses.innerHTML) + 1;
+            pLoss = pLoss + 1;
+        	playerLosses.innerHTML = pLoss;
             gameState = 1;
             dealButton.innerHTML = "Clear";
             passButton.innerHTML = "Clear";
@@ -135,10 +137,11 @@ async function dealerHit()
         }
 
         //If the dealer has no aces, he will bust when going over 21. 
-        else if (Number(dealerHandValue.innerHTML) > 21 && dealerAceCount < 1) 
+        else if (Number(dealerScore) > 21 && dealerAceCount < 1) 
         {
             dealerHandValue.innerHTML = "BUST";
-            playerWins.innerHTML = Number(playerWins.innerHTML) + 1;
+            pWins = pWins + 1;
+        	playerWins.innerHTML = pWins;
             gameState = 1; 
             dealButton.innerHTML = "Clear";
             passButton.innerHTML = "Clear";
@@ -147,7 +150,7 @@ async function dealerHit()
         }
 
         //If the dealer has aces, the ace will be reduced to a value of 1, taking away one ace token.
-        else if (Number(dealerHandValue.innerHTML) > 21 && dealerAceCount > 0)
+        else if (Number(dealerScore) > 21 && dealerAceCount > 0)
         {
             dealerScore = Number(dealerScore)-10;
             dealerHandValue.innerHTML = dealerScore; 
@@ -198,7 +201,8 @@ function hitPlayer()
         //Displays the Unicode card in the cell.
         pCellArray[playerCellCount].innerHTML = `${cardType[cardValue]}`;
 
-        //If the card is an Ace, adds 11. If 11 puts you over 21, adds 1 instead.
+		//If the card is an Ace, adds 11. If 11 puts you over 21, adds 1 instead.
+		//If the card becomes 11, it also adds an ace token for later deduction
         if (cardValue === 0)
         {
             playerScore = Number(playerScore) + 11;
