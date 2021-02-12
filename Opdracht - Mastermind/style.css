@@ -1,0 +1,97 @@
+#game {
+    margin: auto;
+    border: 3px solid green;
+    width: 375px;
+    justify-content: center;
+    background-color: grey
+}
+
+#controlPanel {
+    margin: auto;
+    border: 3px solid green;
+    width: 200px;
+    height: 200px;
+    justify-content: center;
+    display: inline-block;
+    background-color: rgb(51, 51, 51);
+}
+
+#gameScreen {
+    display: grid;
+    justify-content: center;
+    grid-template-columns: 380px 210px;
+    padding: 10px;
+    margin: auto;
+    
+}
+
+.container {
+    padding: 5px;
+}
+
+.left {
+    border: 3px solid green;
+    padding: 5px;
+    height: 50px;
+    width: 50px;
+    display: inline-block;
+    justify-content: left;
+    background-color: rgb(194, 147, 103);
+}
+
+.middle {
+    font-size: 30px;
+    border: 3px solid green;
+    height: 45px;
+    width: 200px;
+    padding: 5px;
+    display: inline-block;
+    justify-content: center;
+}
+
+.right {
+    border: 3px solid green;
+    padding: 5px;
+    height: 50px;
+    width: 50px;
+    display: inline-block;
+    align-content: center;
+    background-color: rgb(194, 147, 103);
+}
+
+
+#Red {
+    background-color: red;
+    border-radius: 50%;
+    font-size: 22px;
+}
+
+#Green {
+    background-color: lightgreen;
+    border-radius: 50%;
+    font-size: 22px;
+}
+
+#Blue {
+    background-color: lightskyblue;
+    border-radius: 50%;
+    font-size: 22px;
+}
+
+#Yellow {
+    background-color: yellow;
+    border-radius: 50%;
+    font-size: 22px;
+}
+
+#Purple {
+    background-color: purple;
+    border-radius: 50%;
+    font-size: 22px;
+}
+
+#Orange {
+    background-color: orange;
+    border-radius: 50%;
+    font-size: 22px;
+}

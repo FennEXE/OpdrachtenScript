@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+
+<head>
+
+    <title>Opdracht 14 - JavaScript Mastermind</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+	<div id=gameScreen>
+        <div id="game" align="center">
+            <table class="container">
+                <tr>
+                    <tbody class="left" align="center">
+                        <tr><td id="a11">&#9899;</td><td id="a12">&#9899;</td></tr><tr><td id="a13">&#9899;</td><td id="a14">&#9899;</td></tr>
+                    </tbody>
+                    <tbody class="middle" align="center">
+                        <tr><td id="a21">&#9899;</td><td id="a22">&#9899;</td><td id="a23">&#9899;</td><td id="a24">&#9899;</td></tr>
+                    </tbody>
+                    <tbody class="right" align="center">
+                        <tr><td id="a31">&#9899;</td><td id="a32">&#9899;</td></tr><tr><td id="a33">&#9899;</td><td id="a34">&#9899;</td></tr>
+                    </tbody>
+                </tr>
+                <tr>
+                    <tbody class="left" align="center">
+                        <tr><td id="b11">&#9899;</td><td id="b12">&#9899;</td></tr><tr><td id="b13">&#9899;</td><td id="b14">&#9899;</td></tr>
+                    </tbody>
+                    <tbody class="middle" align="center">
+                        <tr><td id="b21">&#9899;</td><td id="b22">&#9899;</td><td id="b23">&#9899;</td><td id="b24">&#9899;</td></tr>
+                    </tbody>
+                    <tbody class="right" align="center">
+                        <tr><td id="b31">&#9899;</td><td id="b32">&#9899;</td></tr><tr><td id="b33">&#9899;</td><td id="b34">&#9899;</td></tr>
+                    </tbody>
+				</tr>
+				<tr>
+                    <tbody class="left" align="center">
+                        <tr><td id="c11">&#9899;</td><td id="c12">&#9899;</td></tr><tr><td id="c13">&#9899;</td><td id="c14">&#9899;</td></tr>
+                    </tbody>
+                    <tbody class="middle" align="center">
+                        <tr><td id="c21">&#9899;</td><td id="c22">&#9899;</td><td id="c23">&#9899;</td><td id="c24">&#9899;</td></tr>
+                    </tbody>
+                    <tbody class="right" align="center">
+                        <tr><td id="c31">&#9899;</td><td id="c32">&#9899;</td></tr><tr><td id="c33">&#9899;</td><td id="c34">&#9899;</td></tr>
+                    </tbody>
+				</tr>
+				<tr>
+                    <tbody class="left" align="center">
+                        <tr><td id="d11">&#9899;</td><td id="d12">&#9899;</td></tr><tr><td id="d13">&#9899;</td><td id="d14">&#9899;</td></tr>
+                    </tbody>
+                    <tbody class="middle" align="center">
+                        <tr><td id="d21">&#9899;</td><td id="d22">&#9899;</td><td id="d23">&#9899;</td><td id="d24">&#9899;</td></tr>
+                    </tbody>
+                    <tbody class="right" align="center">
+                        <tr><td id="d31">&#9899;</td><td id="d32">&#9899;</td></tr><tr><td id="d33">&#9899;</td><td id="d34">&#9899;</td></tr>
+                    </tbody>
+				</tr>
+				<tr>
+                    <tbody class="left" align="center">
+                        <tr><td id="e11">&#9899;</td><td id="e12">&#9899;</td></tr><tr><td id="e13">&#9899;</td><td id="e14">&#9899;</td></tr>
+                    </tbody>
+                    <tbody class="middle" align="center">
+                        <tr><td id="e21">&#9899;</td><td id="e22">&#9899;</td><td id="e23">&#9899;</td><td id="e24">&#9899;</td></tr>
+                    </tbody>
+                    <tbody class="right" align="center">
+                        <tr><td id="e31">&#9899;</td><td id="e32">&#9899;</td></tr><tr><td id="e33">&#9899;</td><td id="e34">&#9899;</td></tr>
+                    </tbody>
+				</tr>
+				<tr>
+                    <tbody class="left" align="center">
+                        <tr><td id="f11">&#9899;</td><td id="f12">&#9899;</td></tr><tr><td id="f13">&#9899;</td><td id="f14">&#9899;</td></tr>
+                    </tbody>
+                    <tbody class="middle" align="center">
+                        <tr><td id="f21">&#9899;</td><td id="f22">&#9899;</td><td id="f23">&#9899;</td><td id="f24">&#9899;</td></tr>
+                    </tbody>
+                    <tbody class="right" align="center">
+                        <tr><td id="f31">&#9899;</td><td id="f32">&#9899;</td></tr><tr><td id="f33">&#9899;</td><td id="f34">&#9899;</td></tr>
+                    </tbody>
+				</tr>
+				<tr>
+                    <tbody class="left" align="center">
+                        <tr><td id="g11">&#9899;</td><td id="g12">&#9899;</td></tr><tr><td id="g13">&#9899;</td><td id="g14">&#9899;</td></tr>
+                    </tbody>
+                    <tbody class="middle" align="center">
+                        <tr><td id="g21">&#9899;</td><td id="g22">&#9899;</td><td id="g23">&#9899;</td><td id="g24">&#9899;</td></tr>
+                    </tbody>
+                    <tbody class="right" align="center">
+                        <tr><td id="g31">&#9899;</td><td id="g32">&#9899;</td></tr><tr><td id="g33">&#9899;</td><td id="g34">&#9899;</td></tr>
+                    </tbody>
+				</tr>
+				<tr>
+                    <tbody class="left" align="center">
+                        <tr><td id="h11">&#9899;</td><td id="h12">&#9899;</td></tr><tr><td id="h13">&#9899;</td><td id="h14">&#9899;</td></tr>
+                    </tbody>
+                    <tbody class="middle" align="center">
+                        <tr><td id="h21">&#9899;</td><td id="h22">&#9899;</td><td id="h23">&#9899;</td><td id="h24">&#9899;</td></tr>
+                    </tbody>
+                    <tbody class="right" align="center">
+                        <tr><td id="h31">&#9899;</td><td id="h32">&#9899;</td></tr><tr><td id="h33">&#9899;</td><td id="h34">&#9899;</td></tr>
+                    </tbody>
+				</tr>
+				<tr>
+                    <tbody class="left" align="center">
+                        <tr><td id="i11">&#9899;</td><td id="i12">&#9899;</td></tr><tr><td id="i13">&#9899;</td><td id="i14">&#9899;</td></tr>
+                    </tbody>
+                    <tbody class="middle" align="center">
+                        <tr><td id="i21">&#9899;</td><td id="i22">&#9899;</td><td id="i23">&#9899;</td><td id="i24">&#9899;</td></tr>
+                    </tbody>
+                    <tbody class="right" align="center">
+                        <tr><td id="i31">&#9899;</td><td id="i32">&#9899;</td></tr><tr><td id="i33">&#9899;</td><td id="i34">&#9899;</td></tr>
+                    </tbody>
+				</tr>
+				<tr>
+                    <tbody class="left" align="center">
+                        <tr><td id="j11">&#9899;</td><td id="j12">&#9899;</td></tr><tr><td id="j13">&#9899;</td><td id="j14">&#9899;</td></tr>
+                    </tbody>
+                    <tbody class="middle" align="center">
+                        <tr><td id="j21">&#9899;</td><td id="j22">&#9899;</td><td id="j23">&#9899;</td><td id="j24">&#9899;</td></tr>
+                    </tbody>
+                    <tbody class="right" align="center">
+                        <tr><td id="j31">&#9899;</td><td id="j32">&#9899;</td></tr><tr><td id="j33">&#9899;</td><td id="j34">&#9899;</td></tr>
+                    </tbody>
+				</tr>
+				<tr>
+                    <tbody class="left" align="center">
+                        <tr><td id="k11">&#9899;</td><td id="k12">&#9899;</td></tr><tr><td id="k13">&#9899;</td><td id="k14">&#9899;</td></tr>
+                    </tbody>
+                    <tbody class="middle" align="center">
+                        <tr><td id="k21">&#9899;</td><td id="k22">&#9899;</td><td id="k23">&#9899;</td><td id="k24">&#9899;</td></tr>
+                    </tbody>
+                    <tbody class="right" align="center">
+                        <tr><td id="k31">&#9899;</td><td id="k32">&#9899;</td></tr><tr><td id="k33">&#9899;</td><td id="k34">&#9899;</td></tr>
+                    </tbody>
+				</tr>
+				<tr>
+                    <tbody class="left" align="center">
+                        <tr><td id="l11">&#9899;</td><td id="l12">&#9899;</td></tr><tr><td id="l13">&#9899;</td><td id="l14">&#9899;</td></tr>
+                    </tbody>
+                    <tbody class="middle" align="center">
+                        <tr><td id="l21">&#9899;</td><td id="l22">&#9899;</td><td id="l23">&#9899;</td><td id="l24">&#9899;</td></tr>
+                    </tbody>
+                    <tbody class="right" align="center">
+                        <tr><td id="l31">&#9899;</td><td id="l32">&#9899;</td></tr><tr><td id="l33">&#9899;</td><td id="l34">&#9899;</td></tr>
+                    </tbody>
+                </tr>
+            </table>
+        </div>
+        <div id="controlPanel" align="center">
+            <br>
+            <button id="Yellow" class="codeSubmit" onclick="submit(0)" align="center">  </button>
+            <button id="Green" class="codeSubmit" onclick="submit(1)" align="center">  </button>
+            <button id="Blue" class="codeSubmit" onclick="submit(2)" align="center">  </button>
+            <button id="Red" class="codeSubmit" onclick="submit(3)" align="center">  </button>
+            <button id="Purple" class="codeSubmit" onclick="submit(4)" align="center">  </button>
+            <button id="Orange" class="codeSubmit" onclick="submit(5)" align="center">  </button>
+            <br><br>
+            <button id="Submit" class="codeSubmit" onclick="submitCode()">Submit</button>
+            <br><br>
+            <div id="lock">
+                <h2 id=locktext>Locked</h2>
+            </div>
+        </div>
+        
+	</div>
+	<script type="text/JavaScript" src="script.js"></script>
+</body>
